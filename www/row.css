@@ -1,0 +1,77 @@
+.column {
+  float: left;
+  width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#custom-btn-1 {
+    width: 160px !important;
+    height: 160px !important;
+    background:url(image/busy.jpg) center no-repeat;
+    margin: 0 5px 0 5px;
+
+    }
+    #custom-btn-2 {
+        width: 160px !important;
+        height: 160px !important;
+        background:url(image/focus.jpg) center no-repeat;
+        margin: 0 5px 0 5px;
+        }
+        #custom-btn-3 {
+            width: 160px !important;
+            height: 160px !important;
+            background:url(image/selfcontrol.jpg) center no-repeat;
+            margin: 0 5px 0 5px;
+            }
+            #custom-btn-4 {
+                width: 160px !important;
+                height: 160px !important;
+                background:url(image/trigger.jpg) center no-repeat;
+                margin: 0 5px 0 5px;
+                }
+                #custom-btn-5 {
+                    width: 160px !important;
+                    height: 160px !important;
+                    background:url(image/stop.jpg) center no-repeat;
+                  margin: 0 5px 0 5px;
+                    }
+                    #custom-btn-6 {
+                        width: 160px !important;
+                        height: 160px !important;
+                        background:url(image/plan.jpg) center no-repeat;
+                        margin: 0 5px 0 5px;
+                        }
+                      
+                                                #custom-btn-13 {
+                                                    width: 160px !important;
+                                                    height: 100px !important;
+                                                    background:url(image/cold.jpg) center no-repeat;
+                                                    margin: 0 5px 0 5px;
+                                                    }
+                                                    #custom-btn-14 {
+                                                        width: 160px !important;
+                                                        height: 100px !important;
+                                                        background:url(image/yes.png) center no-repeat;
+                                                        margin: 0 5px 0 5px;
+                                                        }
+                                                        #custom-btn-15 {
+                                                            width: 160px !important;
+                                                            height: 100px !important;
+                                                            background:url(image/medi.jpg) center no-repeat;
+                                                            margin: 0 5px 0 5px;
+                                                            }
+
+
+
+#custom-btn span span {
+    height: 100px !important;
+    line-height: 70px;
+}
+.ui-page-theme-a a:visited, html .ui-bar-a a:visited, html .ui-body-a a:visited, html body .ui-group-theme-a a:visited {
+    color: #cc337a;
+}

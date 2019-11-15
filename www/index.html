@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="js/jquery.mobile-1.4.5.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mobile-1.4.5.js"></script>
+     <script src="cordova.js"></script>
+     <link rel="stylesheet" href="back.css">
+     <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+    <!-- Mobiscroll JS and CSS Includes -->
+    <link rel="stylesheet" href="css/mobiscroll.jquery.min.css">
+    <script src="js/mobiscroll.jquery.min.js"></script>
+
+
+    <title>Document</title>
+
+
+
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .custom-card-deck {
+            margin: 1em 0;
+        }
+
+        .custom-card-deck .mbsc-lv-sl-c {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .custom-card-deck .mbsc-lv-v {
+            padding-top: 88%;
+            min-height: 390px;
+        }
+
+        .custom-card-deck .mbsc-lv-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .custom-card-deck .mbsc-lv-item.mbsc-lv-item-swiping {
+            z-index: 10;
+        }
+
+        .custom-card-deck .custom-card-rotate-right {
+            transform: rotate(1deg);
+        }
+
+        .custom-card-deck .custom-card-rotate-left {
+            transform: rotate(-2deg);
+        }
+
+        .custom-card-deck .mbsc-card.custom-card {
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+        }
+        </style>
+
+
+
+</head>
+<body>
+<div>
+  <h1> Drugs Addiction among Teenagers </h1>
+ <a class="ui-btn" onclick="window.location.href='Chatbot.html'">Chatbot</a>
+ <a  class="ui-btn" onclick="window.location.href='Track.html'">Meditate</a>
+ <a  class="ui-btn" onclick="window.location.href='Video.html'">Videos</a>
+ <a  class="ui-btn" onclick="window.location.href='GPS.html'">Locate Us</a>
+ <a  class="ui-btn" onclick="window.location.href='new.html'">Log In</a>
+</div>
+
+<div mbsc-page class="demo-stacked">
+    <div class="mbsc-note mbsc-note-primary mbsc-align-center">
+
+    </div>
+
+    <div class="custom-card-deck">
+        <ul id="card-deck" class="mbsc-card-list mbsc-cloak">
+            <li>
+                <div class="custom-card custom-card-rotate-right" mbsc-card>
+                    <div class="mbsc-card-header">
+                        <div class="mbsc-card-title">Regrets</div>
+
+                    </div>
+                    <div class="mbsc-card-content">
+                        <img draggable="false" src="image/p3.jpg">
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="custom-card" mbsc-card>
+                    <div class="mbsc-card-header">
+                        <div class="mbsc-card-title">On the way to destruction</div>
+                        </div>
+                    <div class="mbsc-card-content">
+                        <img draggable="false" src="image/p2.jpg">
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="custom-card custom-card-rotate-left" mbsc-card>
+                    <div class="mbsc-card-header">
+                        <div class="mbsc-card-title">Peer Pressure</div>
+
+                    </div>
+                    <div class="mbsc-card-content">
+                        <img draggable="false" src="image/p1.jpg">
+                    </div>
+                </div>
+            </li>
+
+
+
+
+        </ul>
+    </div>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+<div data-role="footer" class="ui-bar">
+	<a onclick="window.location.href='How.html'" data-role="ui-btn" id="custom-btn">How</a>
+	<a onclick="window.location.href='Why.html'" data-role="ui-btn" id="custom-btn">Why</a>
+	<a onclick="window.location.href='Whatdo.html'" data-role="ui-btn" id="custom-btn">What to do </a>
+</div>
+<div>
+  <a onclick="window.location.href='home1.html'" class="ui-btn ui-icon-back ui-btn-icon-left">Back</a>
+</div>
+<script>
+
+    mobiscroll.settings = {
+        lang: 'en',   // Specify language like: lang: 'pl' or omit setting to use default
+        theme: 'material'  // Specify theme like: theme: 'ios' or omit setting to use default
+    };
+
+    $(function () {
+
+        // Mobiscroll Cards initialization
+        $('#card-deck').mobiscroll().listview({
+            stages: [{
+                percent: -20,
+                action: function (event, inst) {
+                    inst.remove(event.target);
+                    return false;
+                }
+            }, {
+                percent: 20,
+                action: function (event, inst) {
+                    inst.remove(event.target);
+                    return false;
+                }
+            }],
+            actionable: false
+        });
+
+        // Mobiscroll Cards initialization
+        $('#card-deck-cycle').mobiscroll().listview({
+            stages: [{
+                percent: -20,
+                action: function (event, inst) {
+                    inst.move(event.target, 0);
+                    return false;
+                }
+            }, {
+                percent: 20,
+                action: function (event, inst) {
+                    inst.move(event.target, 0);
+                    return false;
+                }
+            }],
+            actionable: false
+        });
+
+    });
+</script>
+</body>
+
+</html>

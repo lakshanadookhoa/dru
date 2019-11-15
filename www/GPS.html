@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Leaflet Tutorial</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="leaflet/leaflet.css"/>
+<script src="leaflet/leaflet.js"></script>
+<style>
+.ui-btn {
+  background-color: white;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+   top: 85%;
+   left:90%;
+
+}
+</style>
+</head>
+<body>
+  <h3> Search for nearby rehabilitation centers </h3>
+<div id="mapid" style="width: 600px; height: 400px;"></div>
+
+<script>
+var mymap = L.map('mapid').setView([-20.16527900, 57.4963800], 16);
+L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+maxZoom: 19,
+attribution: 'Map data &copy;'+
+'<a href="https://www.openstreetmap.org/">OpenStreetMap</a>'+
+'contributors,<a href="https://creativecommons.org/licenses'+
+'/by-sa/2.0/">CC-BY-SA</a>,Imagery © <a href="https://'+
+'www.mapbox.com/">Mapbox</a>',
+id: 'mapbox.streets',
+accessToken:'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYyc'+
+'XBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'
+
+}).addTo(mymap);
+var marker = L.marker([-20.16527900, 57.4963800]).addTo(mymap);
+
+var marker2 = L.marker([-20.156906, 57.591088]).addTo(mymap);
+var marker3 = L.marker([-20.077670, 57.543190]).addTo(mymap);
+var marker4 = L.marker([-20.018651, 57.618043]).addTo(mymap);
+var marker5 = L.marker([-20.233782, 57.474068]).addTo(mymap);
+var marker6 = L.marker([-20.248823, 57.492002]).addTo(mymap);
+</script>
+<a onclick="window.location.href='index.html'" class="ui-btn ui-icon-back ui-btn-icon-left"></a>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, 	initial-scale=1">
+
+   <link rel="stylesheet" href="js/jquery.mobile-1.4.5.css">
+   <script src="js/jquery.js"></script>
+   <script src="js/jquery.mobile-1.4.5.js"></script>
+   <script src="cordova.js"></script>
+
+   <script type="text/javascript">
+	document.addEventListener("deviceready", onDeviceReady, false);
+	var db;
+	function onDeviceReady(){
+	  alert("device ready");
+    /*if(typeof(storage) !== undefined){
+      localStorage.setItem("name", "lakshana");
+      localStorage.setItem("work", "UTM");
+      var myName=localStorage.getItem("name");
+      alert(myName);
+      //localStorage.clear()
+
+    }else{
+        alert("but, why?");
+      } */
+      db=window.openDatabase("myDrugDB", "1.0", "Simple Demo", 2*1024*1024);
+      db.transaction(createDB, errorCB, successCB);
+    }
+      function createDB(tx){
+        tx.executeSql('CREATE TABLE IF NOT EXISTS drug(id INT, username TEXT, password TEXT)');
+      }
+       function errorCB(err){
+         alert("SQL Error:"+ err.code);
+       }
+       function successCB(){
+         alert("Database & Table Created");
+        }
+ function submitForm(){
+   db.transaction(insertDB, errorCB);
+   //console.log("onSubmit");
+   $.mobile.changePage("#pagetwo", {reverse:false, transition:"slide"});
+   return false;
+ }
+ function insertDB(tx){
+   var title_c=$("[name='username']").val();
+   var author_c=$("[name='password']").val();
+   var sql='INSERT INTO drug(username, password) VALUES(?,?)';
+   tx.executeSql(sql,[title_c,author_c],successQueryDB, errorCB);
+ }
+ function successQueryDB(tx){
+   alert("Insert Successful");
+   tx.executeSql('SELECT * FROM drug', [], renderListCB, errorCB)
+ }
+ function renderListCB(tx, results){
+var htmlString = ' ';
+var len = results.rows.length;
+for(var i=0; i<len;i++){
+htmlString+='<li>'+results.rows.item(i).username+'<br>'+results.rows.item(i).password+'</li>';
+}
+$('#resultList').html(htmlString);
+$('#resultList').listview('refresh');
+}
+
+
+
+
+
+
+   </script>
+</head>
+
+<body>
+
+
+<div data-role="page" id="pageone" data-theme="a">
+  <div data-role="header">
+
+    <h1>Insert Book Details</h1>
+
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <form method="post" onSubmit="return submitForm()">
+     <label class="ui-hidden-accessible">title</label><input name="title" type="text" placeholder="title"/>
+     <label class="ui-hidden-accessible">author</label><input name="author" type="text" placeholder="author"/>
+     <input type="submit" value="submit"/>
+
+    </form>
+ </div>
+
+  <div data-role="footer">
+    <h3>Working with SQLite</h3>
+  </div>
+</div>
+
+<div data-role="page" id="pagetwo">
+  <div data-role="header">
+    <h1>Book Details</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+
+    <div id="output"><ul data-role="listview" id="resultList"></ul></div>
+
+  </div>
+
+  <div data-role="footer">
+    <h1>Working with SQLite</h1>
+  </div>
+</div>
+
+</body>
+</html>

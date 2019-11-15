@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>  Awareness of drug among teens </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="js/jquery.mobile-1.4.5.css">
+<script src="js/jquery.js"></script>
+<script src="js/jquery.mobile-1.4.5.js"></script>
+<link rel="stylesheet" href="row.css">
+
+</head>
+<script type="text/javascript">
+  mobiscroll.settings = {
+    theme: 'material'
+};
+
+$(function () {
+
+    $('#demo').mobiscroll().timer({
+        display: 'inline',
+        targetTime: 10,
+        maxWheel: 'minutes',
+        minWidth: 100,
+        onFinish: function () {
+            mobiscroll.alert({
+                title: "Countdown finished",
+                message: "Yup, that's right, time's up. <br> Restart it by setting a new time."
+
+            });
+        }
+    });
+
+});
+
+
+</script>
+
+
+<body>
+<div data-role="page" id="pageone" data-theme="a">
+
+<div data-role="header">
+<h6> MEDITATE </h6>
+<h5> RELAX NOW </h5>
+<h4> Explore classic methods of relaxation </h4>
+
+</div>
+  <div mbsc-form>
+      <div class="mbsc-align-center">
+          <div class="mbsc-note mbsc-note-primary">Set the timer and hit Start to begin the countdown.</div>
+      </div>
+      <div class="mbsc-form-group">
+          <div class="mbsc-form-group-title">Embedded countdown</div>
+          <div id="demo"></div>
+      </div>
+  </div>
+
+
+
+
+
+
+<div data-role="footer">
+<h2>Footer(toolbar) </h2>
+<div>
+  <a onclick="window.location.href='index.html'" class="ui-btn ui-icon-back ui-btn-icon-left">Back</a>
+</div>
+</div>
+
+</div><!-- /page 1 -->
+
+
+
+</body>
+</html>
